@@ -1,0 +1,37 @@
+{
+  "evaluation_status": "success",
+  "metrics": {
+    "faithfulness": 0.9428571428571428,
+    "answer_relevancy": 0.9039637776424648,
+    "context_precision": 0.8999999999149999,
+    "context_recall": 0.9333333333333333
+  },
+  "checks": [
+    {
+      "criterion": "Faithfulness >= 0.85",
+      "max_points": 3,
+      "verified": true,
+      "met": true
+    },
+    {
+      "criterion": "All four RAGAS metrics >= 0.75",
+      "max_points": 3,
+      "verified": true,
+      "met": true
+    },
+    {
+      "criterion": "Combined enrichment: one request per chunk",
+      "max_points": 2,
+      "verified": true,
+      "met": true
+    },
+    {
+      "criterion": "Measured latency breakdown report",
+      "max_points": 2,
+      "verified": true,
+      "met": true
+    }
+  ],
+  "eligible_points": 10,
+  "note": "Eligibility evidence only; final points are awarded by the instructor."
+}

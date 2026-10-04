@@ -1,0 +1,15 @@
+{
+  "model": "BAAI/bge-reranker-v2-m3",
+  "dtype": "float16",
+  "device": "cpu",
+  "candidate_count": 20,
+  "top_k": 3,
+  "n_runs": 5,
+  "warmup_excluded": true,
+  "candidate_selection": "first 20 hierarchical children, representative timing only",
+  "unit": "milliseconds",
+  "avg_ms": 20664.833719999886,
+  "min_ms": 19174.616000000016,
+  "max_ms": 21904.440499999964,
+  "target_avg_lt_150_ms": false
+}

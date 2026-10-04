@@ -3,10 +3,20 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
 # --- API Keys ---
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai").lower()
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+# Retain the lab's existing key name for compatibility with its modules.
+OPENAI_API_KEY = GEMINI_API_KEY if LLM_PROVIDER == "gemini" else os.getenv("OPENAI_API_KEY", "")
+OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL") or (
+    "https://generativelanguage.googleapis.com/v1beta/openai/"
+    if LLM_PROVIDER == "gemini" else "https://api.openai.com/v1"
+)
+LLM_MODEL = os.getenv("LLM_MODEL") or (
+    "gemini-3.8-flash" if LLM_PROVIDER == "gemini" else "gpt-4o-mini"
+)
 
 # --- Qdrant ---
 QDRANT_HOST = "localhost"
